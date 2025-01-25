@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="dist/index.js" type="module"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="list">
+      <h1>To Do List:</h1>
+    </ul>
+    <form id="new-task-form">
+      <input type="text" id="new-task-title" />
+      <button type="submit">Add</button>
+    </form>
+  </body>
+</html>
+
+<style>
+  body {
+    background-color: rgb(233, 232, 232);
+  }
+  #list {
+    list-style: none;
+    padding: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+    border-radius: 2px;
+    margin: auto;
+    background-color: white;
+    padding-bottom: 1rem;
+  }
+
+  h1 {
+    text-align: center;
+    border-bottom: solid 2px black;
+  }
+
+  #list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0.25rem 0.25rem 0;
+
+    &:nth-child(odd) {
+      background-color: lightgray;
+    }
+  }
+
+  #delete-button {
+    color: red;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 2px;
+  }
+
+  #new-task-form {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto 0 auto;
+    gap: 1rem;
+
+    input {
+      width: -webkit-fill-available;
+    }
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+</style>
