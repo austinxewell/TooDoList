@@ -30,17 +30,38 @@ form?.addEventListener("submit", (e) => {
 function addListItem(task: Task) {
   const item = document.createElement("li");
   const label = document.createElement("label");
+  const deleteBtn = document.createElement("button");
   const checkbox = document.createElement("input");
+
   checkbox.addEventListener("change", () => {
     task.completed = checkbox.checked;
     saveTasks();
   });
+
+  deleteBtn.addEventListener("click", () => {
+    const taskIndex = tasks.indexOf(task);
+
+    if (taskIndex > -1) {
+      tasks.splice(taskIndex, 1);
+      saveTasks();
+      item.remove();
+    }
+  });
+
+  item.id = "list-item";
+
   checkbox.type = "checkbox";
   checkbox.checked = task.completed;
 
+  deleteBtn.id = "delete-button";
+  deleteBtn.textContent = "X";
+
   label.append(checkbox, task.title);
   item.append(label);
+  item.append(deleteBtn);
   list?.append(item);
+
+  saveTasks();
 }
 
 function saveTasks() {
